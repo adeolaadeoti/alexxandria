@@ -1,15 +1,28 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import React from 'react'
+import { motion } from 'framer-motion'
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
-  </Layout>
-)
+interface indexProps {}
 
-export default IndexPage
+const index: React.FC<indexProps> = ({}) => {
+  return (
+    <>
+      <motion.h1 animate={{ x: 200 }}>Hello boy</motion.h1>
+      <div className='cont' data-scroll-container>
+        <div className='section' data-scroll-section>
+          <h1 data-scroll>Hey</h1>
+          <p data-scroll>👋</p>
+        </div>
+        <div className='section' data-scroll-section>
+          <h2 data-scroll data-scroll-speed='1'>
+            What's up?
+          </h2>
+          <p data-scroll data-scroll-speed='2'>
+            😬
+          </p>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default index
