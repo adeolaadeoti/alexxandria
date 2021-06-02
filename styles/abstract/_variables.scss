@@ -1,7 +1,23 @@
 // FONTS
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+  font-family: 'SaolDisplay-Light';
+  src: url('../../public/fonts/SaolDisplay-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SaolDisplay-LightItalic';
+  src: url('../../public/fonts/SaolDisplay-LightItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 $font-primary: 'Poppins', sans-serif;
+$font-secondary: 'SaolDisplay-Light', serif;
+$font-tertiary: 'SaolDisplay-LightItalic', serif;
 
 // COLORS
 :root {
