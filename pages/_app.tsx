@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }: any) {
       const scroll = new locomotiveModule.default({
         el: scrollRef.current,
         smooth: true,
-        direction: 'horizontal',
       })
     })
   }, [])
