@@ -1,5 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
+import Link from 'next/link'
 
 interface indexProps {}
 const transition: { duration: number; ease: number[] } = {
@@ -45,7 +47,19 @@ const letter: { initial: any; animate: any } = {
 }
 
 const index: React.FC<indexProps> = ({}) => {
+  const scrollRef = React.useRef<HTMLDivElement>(null)
   const [addClip, setAddClip] = React.useState<boolean>(false)
+  const [clip, setClip] = React.useState<number>(1)
+
+  React.useEffect(() => {
+    import('locomotive-scroll').then(locomotiveModule => {
+      // @ts-ignore
+      const scroll = new locomotiveModule.default({
+        el: scrollRef.current,
+        smooth: true,
+      })
+    })
+  }, [])
 
   React.useEffect(() => {
     setTimeout(() => {
@@ -53,10 +67,24 @@ const index: React.FC<indexProps> = ({}) => {
     }, 3000)
   }, [])
 
+  function changeBackground(e: any) {
+    const clipId = parseInt(e.target.getAttribute('data-clip'))
+    setClip(clipId)
+  }
+
   return (
-    <motion.div initial='initial' animate='animate' exit='exit'>
+    <motion.div
+      ref={scrollRef}
+      className='container'
+      initial='initial'
+      animate='animate'
+      exit={{ opacity: 0 }}>
+      <Head>
+        <title>Alexxandria Forsque</title>
+        <link rel='icon' href='/vercel.svg' />
+      </Head>
       <motion.div
-        initial={{ x: 100, opacity: 0 }}
+        initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1, transition: { delay: 0.2, ...transition } }}
         className='brand-logo'>
         <img src={'/images/brand-logo.svg'} alt='alexxandria forsque logo' />
@@ -106,6 +134,28 @@ const index: React.FC<indexProps> = ({}) => {
           </motion.div>
         </div>
       </header>
+
+      <section className='section-projects'>
+        <div className={`screen-full ${`clip-${clip}`} `}></div>
+        <div className={`screen-clip ${`clip-${clip}`}`}></div>
+        <div className='screen-details'>
+          <h5 className='heading-5'>projects</h5>
+          <ul className='screen-details__list'>
+            <li data-clip='1' onMouseEnter={changeBackground} className='screen-details__item'>
+              <Link href='/lifestyles'>Lifestyles</Link>
+            </li>
+            <li data-clip='2' onMouseEnter={changeBackground} className='screen-details__item'>
+              <Link href='/cultures'>Cultures</Link>
+            </li>
+            <li data-clip='3' onMouseEnter={changeBackground} className='screen-details__item'>
+              <Link href='/fitness'>Fitness</Link>
+            </li>
+            <li data-clip='4' onMouseEnter={changeBackground} className='screen-details__item'>
+              <Link href='/automotives'>Automotives</Link>
+            </li>
+          </ul>
+        </div>
+      </section>
     </motion.div>
   )
 }

@@ -1,11 +1,20 @@
-
-
 .heading-3 {
   font-family: $font-primary;
   color: var(--color-white);
   font-weight: normal;
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 92.4%;
   letter-spacing: 0.505em;
   margin-bottom: 3rem;
+}
+
+.heading-5 {
+  font-family: $font-primary;
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 92.4%;
+  letter-spacing: 0.505em;
 }

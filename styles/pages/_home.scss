@@ -1,4 +1,12 @@
+.container {
+  width: 100%;
+  height: 100%;
+  scroll-snap-type: mandatory;
+  overflow-y: scroll;
+}
+
 .home-header {
+  scroll-snap-align: start;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -51,11 +59,111 @@
     letter-spacing: -0.045em;
     text-transform: uppercase;
     color: var(--color-secondary);
-  
+
     &--small {
       @extend .hero-text__h1;
       font-family: $font-tertiary;
       text-transform: lowercase;
+    }
+  }
+}
+
+.section-projects {
+  scroll-snap-align: start;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.screen-full {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url('../../public/images/lifestyle-bg.webp');
+  opacity: 0.4;
+  background: url('../../public/images/lifestyle-bg.webp');
+  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  transition: all 1s .2s ease-in-out;
+}
+.screen-clip {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  clip-path: inset(16% 33% 16% 33%);
+  background: url('../../public/images/lifestyle-bg.webp');
+  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  transition: all 1s .2s ease-in-out;
+}
+
+.clip-1 {
+  background: url('../../public/images/lifestyle-bg.webp');
+  background-size: cover;
+  background-size: 100%;
+  background-position: center;
+  transition: all 1s .2s ease-in-out;
+}
+.clip-2 {
+  background: url('../../public/images/culture-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-size: 100%;
+  transition: all 1s .2s ease-in-out;
+}
+.clip-3 {
+  background: url('../../public/images/fitness-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-size: 100%;
+  transition: all 1s .2s ease-in-out;
+}
+.clip-4 {
+  background: url('../../public/images/automotive-bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-size: 100%;
+  transition: all 1s .2s ease-in-out;
+}
+
+.screen-details {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__list {
+    margin-top: 7rem;
+    margin-bottom: 8rem;
+  }
+  &__item {
+    list-style: none;
+    font-family: $font-secondary;
+    transition: all .3s ease-in-out;
+    &:hover {
+      font-family: $font-tertiary;
+      padding-left: 3rem;
+    }
+    a {
+      color: var(--color-white);
+      font-weight: normal;
+      font-size: 69px;
+      line-height: 183.4%;
+      letter-spacing: -0.07em;
+      text-decoration: none;
     }
   }
 }
