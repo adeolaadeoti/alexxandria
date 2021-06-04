@@ -9,11 +9,25 @@
     top: 0;
     left: 0;
     clip-path: inset(16% 33% 16% 33%);
-    background: url('../../public/images/lifestyle-bg.webp');
-    background-size: cover;
-    background-size: 100%;
-    background-position: center;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     transition: all 1s 0.2s ease-in-out;
+    &--lifestyles {
+      background: url('../../public/images/lifestyle-bg.webp');
+    }
+    &--cultures {
+      background: url('../../public/images/culture-bg.webp');
+    }
+    &--fitness {
+      background: url('../../public/images/fitness-bg.webp');
+    }
+    &--automotives {
+      background: url('../../public/images/automotive-bg.webp');
+    }
+    @media only screen and (max-width: 62.5em) {
+      clip-path: inset(16% 20% 16% 20%);
+    }
   }
   &__text1 {
     position: absolute;
@@ -22,10 +36,21 @@
     font-family: $font-secondary;
     color: var(--color-secondary);
     font-weight: normal;
-    font-size: 30rem;
+    font-size: 16vw;
     line-height: 92.4%;
     letter-spacing: -0.045em;
     transition: all 1s ease-in-out;
+
+    @media only screen and (max-width: 62.5em) {
+      left: 13rem;
+    }
+    @media only screen and (max-width: 37.5em) {
+      left: 9rem;
+      font-size: 20vw;
+    }
+    @media only screen and (max-width: 28.125em) {
+      left: 5rem;
+    }
   }
   &__text2 {
     @extend .gallery-header__text1;
@@ -37,8 +62,21 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 50rem;
+    top: 40rem;
     left: 19rem;
+
+    @media only screen and (max-width: 62.5em) {
+      left: 13rem;
+      top: 35rem;
+    }
+    @media only screen and (max-width: 37.5em) {
+      left: 9rem;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    @media only screen and (max-width: 28.125em) {
+      left: 5rem;
+    }
     &--p {
       color: var(--color-white);
       font-weight: normal;
@@ -48,6 +86,10 @@
       text-transform: uppercase;
       &:nth-of-type(2) {
         margin-left: 15rem;
+        @media only screen and (max-width: 37.5em) {
+          margin-left: 0rem;
+          margin-top: 1rem;
+        }
       }
     }
   }
@@ -55,6 +97,12 @@
 
 .project-clippy {
   clip-path: inset(14% 27% 12% 46%);
+  @media only screen and (max-width: 62.5em) {
+    clip-path: inset(14% 20% 12% 46%);
+  }
+  @media only screen and (max-width: 37.5em) {
+    clip-path: inset(14% 12% 12% 32%);
+  }
 }
 
 .section-showcase {
@@ -63,18 +111,53 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 62.5em) {
+    padding: 5rem 10rem;
+  }
+  @media only screen and (max-width: 37.5em) {
+    padding: 4rem 8rem;
+  }
+  @media only screen and (max-width: 28.125em) {
+    padding: 4rem 5rem;
+  }
+
   &__img {
-    background-size: cover !important;
+    background-position: center !important;
+    background-size: 120% !important;
+    background-repeat: no-repeat !important;
+    transition: all 0.3s ease-in-out !important;
+    &:hover {
+      background-size: 110% !important;
+    }
     &:nth-of-type(1) {
       width: 38%;
       height: 68.4rem;
       background: url('../../public/images/lifestyles/lifestyle-1.webp');
+      @media only screen and (max-width: 62.5em) {
+        width: 48%;
+      }
+      @media only screen and (max-width: 37.5em) {
+        width: 68%;
+      }
+      @media only screen and (max-width: 28.125em) {
+        width: 88%;
+      }
     }
     &:nth-of-type(2) {
       width: 54%;
       height: 35rem;
       background: url('../../public/images/lifestyles/lifestyle-3.webp');
       align-self: flex-end;
+      @media only screen and (max-width: 62.5em) {
+        width: 64%;
+      }
+      @media only screen and (max-width: 37.5em) {
+        width: 84%;
+      }
+      @media only screen and (max-width: 28.125em) {
+        width: 94%;
+      }
     }
     &:nth-of-type(3) {
       width: 100%;
@@ -85,22 +168,46 @@
       width: 57%;
       height: 38rem;
       background: url('../../public/images/lifestyles/lifestyle-4.webp');
+      @media only screen and (max-width: 62.5em) {
+        width: 67%;
+      }
+      @media only screen and (max-width: 37.5em) {
+        width: 87%;
+      }
+      @media only screen and (max-width: 28.125em) {
+        width: 98%;
+      }
     }
     &:nth-of-type(5) {
       width: 33%;
       height: 43rem;
       background: url('../../public/images/lifestyles/lifestyle-5.webp');
       align-self: flex-end;
+      @media only screen and (max-width: 62.5em) {
+        width: 44%;
+      }
+      @media only screen and (max-width: 37.5em) {
+        width: 64%;
+      }
+      @media only screen and (max-width: 28.125em) {
+        width: 88%;
+      }
     }
   }
 }
 
 .footer {
-  width: 100%;
-  padding: 3rem;
+  padding: 3rem 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #031711;
+
+  @media only screen and (max-width: 37.5em) {
+    padding: 2rem 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   &__p {
     width: 40%;
@@ -110,5 +217,13 @@
     font-size: 1.7rem;
     line-height: 138.9%;
     letter-spacing: 0.02em;
+    @media only screen and (max-width: 37.5em) {
+      width: 90%;
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
+    }
+  }
+  &__copyright {
+    width: 14rem;
   }
 }

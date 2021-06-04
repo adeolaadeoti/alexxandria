@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
 
-interface lifestyleProps {}
+interface automotivesProps {}
 const transition: { duration: number; ease: number[] } = {
   duration: 1.4,
   ease: [0.6, 0.01, -0.05, 0.9],
@@ -14,7 +14,7 @@ const map = (x: any, a: number, b: number, c: number, d: number) =>
 
 const clamp = (num: number, min: number, max: number) => (num <= min ? min : num >= max ? max : num)
 
-const lifestyle: React.FC<lifestyleProps> = ({}) => {
+const automotives: React.FC<automotivesProps> = ({}) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
   const [addClip, setAddClip] = React.useState<boolean>(false)
 
@@ -62,7 +62,7 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
       animate='animate'
       exit={{ opacity: 0 }}>
       <Head>
-        <title>Alexxandria Forsque &mdash; lifestyles</title>
+        <title>Alexxandria Forsque &mdash; Automotives</title>
         <link rel='icon' href='/vercel.svg' />
       </Head>
       <header data-scroll-section className='gallery-header'>
@@ -77,14 +77,14 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1, transition: { delay: 1, ...transition } }}
             className='gallery-header__text1'>
-            Lifestyles
+            Automotives
           </motion.h1>
-          <div className={`gallery-header__image gallery-header__image--lifestyles ${addClip && 'project-clippy'}`}></div>
+          <div className={`gallery-header__image gallery-header__image--automotives ${addClip && 'project-clippy'}`}></div>
           <motion.h1
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1, transition: { delay: 1, ...transition } }}
             className='gallery-header__text2'>
-            Lifestyles
+            Automotives
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -131,4 +131,4 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
   )
 }
 
-export default lifestyle
+export default automotives
