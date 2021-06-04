@@ -78,7 +78,7 @@ const index: React.FC<indexProps> = ({}) => {
       className='container'
       initial='initial'
       animate='animate'
-      exit={{ opacity: 0 }}>
+      >
       <Head>
         <title>Alexxandria Forsque</title>
         <link rel='icon' href='/vercel.svg' />
@@ -89,7 +89,7 @@ const index: React.FC<indexProps> = ({}) => {
         className='brand-logo'>
         <img src={'/images/brand-logo.svg'} alt='alexxandria forsque logo' />
       </motion.div>
-      <header className='home-header'>
+      <header  className='home-header'>
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 2, ...transition } }}

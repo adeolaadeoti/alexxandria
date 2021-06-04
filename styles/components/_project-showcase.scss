@@ -1,0 +1,114 @@
+.gallery-header {
+  width: 100vw;
+  height: 97vh;
+  position: relative;
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    clip-path: inset(16% 33% 16% 33%);
+    background: url('../../public/images/lifestyle-bg.webp');
+    background-size: cover;
+    background-size: 100%;
+    background-position: center;
+    transition: all 1s 0.2s ease-in-out;
+  }
+  &__text1 {
+    position: absolute;
+    top: 19rem;
+    left: 18rem;
+    font-family: $font-secondary;
+    color: var(--color-secondary);
+    font-weight: normal;
+    font-size: 30rem;
+    line-height: 92.4%;
+    letter-spacing: -0.045em;
+    transition: all 1s ease-in-out;
+  }
+  &__text2 {
+    @extend .gallery-header__text1;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--color-secondary);
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50rem;
+    left: 19rem;
+    &--p {
+      color: var(--color-white);
+      font-weight: normal;
+      font-size: 11px;
+      line-height: 92.4%;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      &:nth-of-type(2) {
+        margin-left: 15rem;
+      }
+    }
+  }
+}
+
+.project-clippy {
+  clip-path: inset(14% 27% 12% 46%);
+}
+
+.section-showcase {
+  padding: 10rem 25rem;
+  height: max-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__img {
+    background-size: cover !important;
+    &:nth-of-type(1) {
+      width: 38%;
+      height: 68.4rem;
+      background: url('../../public/images/lifestyles/lifestyle-1.webp');
+    }
+    &:nth-of-type(2) {
+      width: 54%;
+      height: 35rem;
+      background: url('../../public/images/lifestyles/lifestyle-3.webp');
+      align-self: flex-end;
+    }
+    &:nth-of-type(3) {
+      width: 100%;
+      height: 53rem;
+      background: url('../../public/images/lifestyles/lifestyle-2.webp');
+    }
+    &:nth-of-type(4) {
+      width: 57%;
+      height: 38rem;
+      background: url('../../public/images/lifestyles/lifestyle-4.webp');
+    }
+    &:nth-of-type(5) {
+      width: 33%;
+      height: 43rem;
+      background: url('../../public/images/lifestyles/lifestyle-5.webp');
+      align-self: flex-end;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__p {
+    width: 40%;
+    font-family: $font-secondary;
+    color: var(--color-secondary);
+    font-weight: normal;
+    font-size: 1.7rem;
+    line-height: 138.9%;
+    letter-spacing: 0.02em;
+  }
+}
