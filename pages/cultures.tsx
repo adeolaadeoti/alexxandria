@@ -8,12 +8,6 @@ const transition: { duration: number; ease: number[] } = {
   ease: [0.6, 0.01, -0.05, 0.9],
 }
 
-// Map number x from range [a, b] to [c, d]
-const map = (x: any, a: number, b: number, c: number, d: number) =>
-  ((x - a) * (d - c)) / (b - a) + c
-
-const clamp = (num: number, min: number, max: number) => (num <= min ? min : num >= max ? max : num)
-
 const culture: React.FC<cultureProps> = ({}) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
   const [addClip, setAddClip] = React.useState<boolean>(false)
