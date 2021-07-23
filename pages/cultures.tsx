@@ -23,27 +23,17 @@ const culture: React.FC<cultureProps> = ({}) => {
       const scroll = new locomotiveModule.default({
         el: scrollRef.current,
         smooth: true,
+        inertia: 0.3,
+        multiplier: 0.65,
+        smartphone: {
+          smooth: true,
+        },
+        tablet: {
+          smooth: true,
+        },
       })
 
-      scroll.on('scroll', (obj: any) => {
-        for (const key of Object.keys(obj.currentElements)) {
-          if (obj.currentElements[key].el.classList.contains('section-showcase__img')) {
-            let progress = obj.currentElements[key].progress
-            const saturateVal =
-              progress < 0.5
-                ? clamp(map(progress, 0, 0.5, 0, 1), 0, 1)
-                : clamp(map(progress, 0.5, 1, 1, 0), 0, 1)
-            const brightnessVal =
-              progress < 0.5
-                ? clamp(map(progress, 0, 0.5, 0, 1), 0, 1)
-                : clamp(map(progress, 0.5, 1, 1, 0), 0, 1)
-            obj.currentElements[
-              key
-            ].el.style.filter = `saturate(${saturateVal}) brightness(${brightnessVal})`
-          }
-        }
-      })
-      scroll.update()
+      console.log(scroll)
     })
   }, [])
 
@@ -96,29 +86,29 @@ const culture: React.FC<cultureProps> = ({}) => {
         </div>
       </header>
       <section data-scroll-section className='section-showcase'>
-        <div data-scroll data-scroll-speed='1' className='section-showcase__img'>
+        <div data-scroll data-scroll-speed='1' className='section-showcase__img section-showcase__img--cultures'>
           &nbsp;
         </div>
-        <div data-scroll data-scroll-speed='-1' className='section-showcase__img'>
-          &nbsp;
-        </div>
-        <div
-          data-scroll
-          data-scroll-speed='1'
-          data-scroll-direction='horizontal'
-          className='section-showcase__img'>
-          &nbsp;
-        </div>
-        <div data-scroll data-scroll-speed='2' className='section-showcase__img'>
+        <div data-scroll data-scroll-speed='-1' className='section-showcase__img section-showcase__img--cultures'>
           &nbsp;
         </div>
         <div
           data-scroll
           data-scroll-speed='1'
           data-scroll-direction='horizontal'
-          className='section-showcase__img'>
+          className='section-showcase__img section-showcase__img--cultures'>
           &nbsp;
         </div>
+        <div data-scroll data-scroll-speed='2' className='section-showcase__img section-showcase__img--cultures'>
+          &nbsp;
+        </div>
+        {/* <div
+          data-scroll
+          data-scroll-speed='1'
+          data-scroll-direction='horizontal'
+          className='section-showcase__img section-showcase__img--cultures'>
+          &nbsp;
+        </div> */}
       </section>
       <footer data-scroll-section className='footer'>
         <p className='footer__p'>

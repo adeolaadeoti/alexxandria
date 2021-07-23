@@ -8,12 +8,6 @@ const transition: { duration: number; ease: number[] } = {
   ease: [0.6, 0.01, -0.05, 0.9],
 }
 
-// Map number x from range [a, b] to [c, d]
-const map = (x: any, a: number, b: number, c: number, d: number) =>
-  ((x - a) * (d - c)) / (b - a) + c
-
-const clamp = (num: number, min: number, max: number) => (num <= min ? min : num >= max ? max : num)
-
 const fitness: React.FC<fitnessProps> = ({}) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
   const [addClip, setAddClip] = React.useState<boolean>(false)
@@ -23,27 +17,17 @@ const fitness: React.FC<fitnessProps> = ({}) => {
       const scroll = new locomotiveModule.default({
         el: scrollRef.current,
         smooth: true,
+        inertia: 0.3,
+        multiplier: 0.65,
+        smartphone: {
+          smooth: true,
+        },
+        tablet: {
+          smooth: true,
+        },
       })
 
-      scroll.on('scroll', (obj: any) => {
-        for (const key of Object.keys(obj.currentElements)) {
-          if (obj.currentElements[key].el.classList.contains('section-showcase__img')) {
-            let progress = obj.currentElements[key].progress
-            const saturateVal =
-              progress < 0.5
-                ? clamp(map(progress, 0, 0.5, 0, 1), 0, 1)
-                : clamp(map(progress, 0.5, 1, 1, 0), 0, 1)
-            const brightnessVal =
-              progress < 0.5
-                ? clamp(map(progress, 0, 0.5, 0, 1), 0, 1)
-                : clamp(map(progress, 0.5, 1, 1, 0), 0, 1)
-            obj.currentElements[
-              key
-            ].el.style.filter = `saturate(${saturateVal}) brightness(${brightnessVal})`
-          }
-        }
-      })
-      scroll.update()
+      console.log(scroll)
     })
   }, [])
 
@@ -96,29 +80,29 @@ const fitness: React.FC<fitnessProps> = ({}) => {
         </div>
       </header>
       <section data-scroll-section className='section-showcase'>
-        <div data-scroll data-scroll-speed='1' className='section-showcase__img'>
+        <div data-scroll data-scroll-speed='1' className='section-showcase__img section-showcase__img--fitness'>
           &nbsp;
         </div>
-        <div data-scroll data-scroll-speed='-1' className='section-showcase__img'>
-          &nbsp;
-        </div>
-        <div
-          data-scroll
-          data-scroll-speed='1'
-          data-scroll-direction='horizontal'
-          className='section-showcase__img'>
-          &nbsp;
-        </div>
-        <div data-scroll data-scroll-speed='2' className='section-showcase__img'>
+        <div data-scroll data-scroll-speed='-1' className='section-showcase__img section-showcase__img--fitness'>
           &nbsp;
         </div>
         <div
           data-scroll
           data-scroll-speed='1'
           data-scroll-direction='horizontal'
-          className='section-showcase__img'>
+          className='section-showcase__img section-showcase__img--fitness'>
           &nbsp;
         </div>
+        <div data-scroll data-scroll-speed='2' className='section-showcase__img section-showcase__img--fitness'>
+          &nbsp;
+        </div>
+        {/* <div
+          data-scroll
+          data-scroll-speed='1'
+          data-scroll-direction='horizontal'
+          className='section-showcase__img section-showcase__img--fitness'>
+          &nbsp;
+        </div> */}
       </section>
       <footer data-scroll-section className='footer'>
         <p className='footer__p'>

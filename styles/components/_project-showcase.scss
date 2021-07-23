@@ -45,8 +45,8 @@
       left: 13rem;
     }
     @media only screen and (max-width: 37.5em) {
-      left: 9rem;
-      font-size: 20vw;
+      left: 8rem;
+      font-size: 18vw;
     }
     @media only screen and (max-width: 28.125em) {
       left: 5rem;
@@ -56,13 +56,16 @@
     @extend .gallery-header__text1;
     color: transparent;
     -webkit-text-stroke: 2px var(--color-secondary);
+    @media only screen and (max-width: 57.5em) {
+      -webkit-text-stroke: 1px var(--color-secondary);
+    }
   }
   &__info {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 40rem;
+    top: 50rem;
     left: 19rem;
 
     @media only screen and (max-width: 62.5em) {
@@ -130,10 +133,11 @@
     &:hover {
       background-size: 110% !important;
     }
+
     &:nth-of-type(1) {
       width: 38%;
       height: 68.4rem;
-      background: url('../../public/images/lifestyles/lifestyle-1.webp');
+      // background: url('../../public/images/lifestyles/lifestyle-1.webp');
       @media only screen and (max-width: 62.5em) {
         width: 48%;
       }
@@ -147,7 +151,7 @@
     &:nth-of-type(2) {
       width: 54%;
       height: 35rem;
-      background: url('../../public/images/lifestyles/lifestyle-3.webp');
+      // background: url('../../public/images/lifestyles/lifestyle-3.webp');
       align-self: flex-end;
       @media only screen and (max-width: 62.5em) {
         width: 64%;
@@ -162,12 +166,12 @@
     &:nth-of-type(3) {
       width: 100%;
       height: 53rem;
-      background: url('../../public/images/lifestyles/lifestyle-2.webp');
+      // background: url('../../public/images/lifestyles/lifestyle-2.webp');
     }
     &:nth-of-type(4) {
       width: 57%;
       height: 38rem;
-      background: url('../../public/images/lifestyles/lifestyle-4.webp');
+      // background: url('../../public/images/lifestyles/lifestyle-4.webp');
       @media only screen and (max-width: 62.5em) {
         width: 67%;
       }
@@ -181,7 +185,7 @@
     &:nth-of-type(5) {
       width: 33%;
       height: 43rem;
-      background: url('../../public/images/lifestyles/lifestyle-5.webp');
+      // background: url('../../public/images/lifestyles/lifestyle-5.webp');
       align-self: flex-end;
       @media only screen and (max-width: 62.5em) {
         width: 44%;
@@ -191,6 +195,66 @@
       }
       @media only screen and (max-width: 28.125em) {
         width: 88%;
+      }
+    }
+
+    &--lifestyles {
+      &:nth-of-type(1) {
+        background: url('../../public/images/lifestyles/lifestyle-1.webp');
+      }
+      &:nth-of-type(2) {
+        background: url('../../public/images/lifestyles/lifestyle-3.webp');
+      }
+      &:nth-of-type(3) {
+        background: url('../../public/images/lifestyles/lifestyle-2.webp');
+      }
+      &:nth-of-type(4) {
+        background: url('../../public/images/lifestyles/lifestyle-4.webp');
+      }
+      &:nth-of-type(5) {
+        background: url('../../public/images/lifestyles/lifestyle-5.webp');
+      }
+    }
+    &--cultures {
+      &:nth-of-type(1) {
+        background: url('../../public/images/cultures/culture-1.webp');
+      }
+      &:nth-of-type(2) {
+        background: url('../../public/images/cultures/culture-3.webp');
+      }
+      &:nth-of-type(3) {
+        background: url('../../public/images/cultures/culture-2.webp');
+      }
+      &:nth-of-type(4) {
+        background: url('../../public/images/cultures/culture-4.webp');
+      }
+    }
+    &--fitness {
+      &:nth-of-type(1) {
+        background: url('../../public/images/fitness/fitness-1.webp');
+      }
+      &:nth-of-type(2) {
+        background: url('../../public/images/fitness/fitness-3.webp');
+      }
+      &:nth-of-type(3) {
+        background: url('../../public/images/fitness/fitness-2.webp');
+      }
+      &:nth-of-type(4) {
+        background: url('../../public/images/fitness/fitness-4.webp');
+      }
+    }
+    &--automotives {
+      &:nth-of-type(1) {
+        background: url('../../public/images/automotives/automotive-1.webp');
+      }
+      &:nth-of-type(2) {
+        background: url('../../public/images/automotives/automotive-3.webp');
+      }
+      &:nth-of-type(3) {
+        background: url('../../public/images/automotives/automotive-2.webp');
+      }
+      &:nth-of-type(4) {
+        background: url('../../public/images/automotives/automotive-4.webp');
       }
     }
   }

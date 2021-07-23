@@ -8,12 +8,6 @@ const transition: { duration: number; ease: number[] } = {
   ease: [0.6, 0.01, -0.05, 0.9],
 }
 
-// Map number x from range [a, b] to [c, d]
-const map = (x: any, a: number, b: number, c: number, d: number) =>
-  ((x - a) * (d - c)) / (b - a) + c
-
-const clamp = (num: number, min: number, max: number) => (num <= min ? min : num >= max ? max : num)
-
 const lifestyle: React.FC<lifestyleProps> = ({}) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
   const [addClip, setAddClip] = React.useState<boolean>(false)
@@ -23,27 +17,17 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
       const scroll = new locomotiveModule.default({
         el: scrollRef.current,
         smooth: true,
+        inertia: 0.3,
+        multiplier: 0.65,
+        smartphone: {
+          smooth: true,
+        },
+        tablet: {
+          smooth: true,
+        },
       })
 
-      scroll.on('scroll', (obj: any) => {
-        for (const key of Object.keys(obj.currentElements)) {
-          if (obj.currentElements[key].el.classList.contains('section-showcase__img')) {
-            let progress = obj.currentElements[key].progress
-            const saturateVal =
-              progress < 0.5
-                ? clamp(map(progress, 0, 0.5, 0, 1), 0, 1)
-                : clamp(map(progress, 0.5, 1, 1, 0), 0, 1)
-            const brightnessVal =
-              progress < 0.5
-                ? clamp(map(progress, 0, 0.5, 0, 1), 0, 1)
-                : clamp(map(progress, 0.5, 1, 1, 0), 0, 1)
-            obj.currentElements[
-              key
-            ].el.style.filter = `saturate(${saturateVal}) brightness(${brightnessVal})`
-          }
-        }
-      })
-      scroll.update()
+      console.log(scroll)
     })
   }, [])
 
@@ -79,7 +63,10 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
             className='gallery-header__text1'>
             Lifestyles
           </motion.h1>
-          <div className={`gallery-header__image gallery-header__image--lifestyles ${addClip && 'project-clippy'}`}></div>
+          <div
+            className={`gallery-header__image gallery-header__image--lifestyles ${
+              addClip && 'project-clippy'
+            }`}></div>
           <motion.h1
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1, transition: { delay: 1, ...transition } }}
@@ -96,27 +83,36 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
         </div>
       </header>
       <section data-scroll-section className='section-showcase'>
-        <div data-scroll data-scroll-speed='1' className='section-showcase__img'>
+        <div
+          data-scroll
+          data-scroll-speed='1'
+          className='section-showcase__img section-showcase__img--lifestyles'>
           &nbsp;
         </div>
-        <div data-scroll data-scroll-speed='-1' className='section-showcase__img'>
+        <div
+          data-scroll
+          data-scroll-speed='-1'
+          className='section-showcase__img section-showcase__img--lifestyles'>
           &nbsp;
         </div>
         <div
           data-scroll
           data-scroll-speed='1'
           data-scroll-direction='horizontal'
-          className='section-showcase__img'>
+          className='section-showcase__img section-showcase__img--lifestyles'>
           &nbsp;
         </div>
-        <div data-scroll data-scroll-speed='2' className='section-showcase__img'>
+        <div
+          data-scroll
+          data-scroll-speed='2'
+          className='section-showcase__img section-showcase__img--lifestyles'>
           &nbsp;
         </div>
         <div
           data-scroll
           data-scroll-speed='1'
           data-scroll-direction='horizontal'
-          className='section-showcase__img'>
+          className='section-showcase__img section-showcase__img--lifestyles'>
           &nbsp;
         </div>
       </section>
@@ -125,7 +121,11 @@ const lifestyle: React.FC<lifestyleProps> = ({}) => {
           Alexxandria Forsque - is an observer. Her sensitivity and natural intuition make her the
           perfect woman to direct and capture life’s real characters.
         </p>
-        <img className='footer__copyright' src='/images/adeola-credit.svg' alt='designed and developed by adeola' />
+        <img
+          className='footer__copyright'
+          src='/images/adeola-credit.svg'
+          alt='designed and developed by adeola'
+        />
       </footer>
     </motion.div>
   )
